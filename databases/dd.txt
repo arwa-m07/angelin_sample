@@ -1,0 +1,129 @@
+-- Active: 1707897697330@@127.0.0.1@3306@shiny
+CREATE TABLE `facultyinformation` (
+  `CollegeEmailId` varchar(255) NOT NULL,
+  `CollegePassword` int NOT NULL,
+  `FacultyFirstName` varchar(255) NOT NULL,
+  `FacultyLastName` varchar(255) NOT NULL,
+  `Department` varchar(255) NOT NULL,
+  `Designation` varchar(255) NOT NULL,
+  `Qualification` varchar(255) NOT NULL,
+  `SubjectsExpertise` varchar(255) NOT NULL,
+  `YearsOfExperience` int NOT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`CollegeEmailId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+-- Active: 1707897697330@@127.0.0.1@3306@shiny
+CREATE TABLE `academics` (
+  `CollegeEmailId` varchar(255) DEFAULT NULL,
+  `AcademicId` int NOT NULL,
+  `AcademicYear` int DEFAULT NULL,
+  `Department` varchar(255) DEFAULT NULL,
+  `AchievementsType` varchar(255) DEFAULT NULL,
+  `Subjects` varchar(255) DEFAULT NULL,
+  `AwardsCashCertificate` varchar(255) DEFAULT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`AcademicId`),
+  KEY `CollegeEmailId` (`CollegeEmailId`),
+  CONSTRAINT `academics` FOREIGN KEY (`CollegeEmailId`) REFERENCES `facultyinformation` (`CollegeEmailId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+-- Active: 1707897697330@@127.0.0.1@3306@shiny
+CREATE TABLE `awards` (
+  `CollegeEmailId` varchar(255) DEFAULT NULL,
+  `AwardId` int NOT NULL,
+  `Nameofawards` int DEFAULT NULL,
+  `Noofawards` varchar(255) DEFAULT NULL,
+  `AcademicYear` varchar(255) DEFAULT NULL,
+  `AwardDetails` varchar(255) DEFAULT NULL,
+  `Certificate` varchar(255) DEFAULT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`AwardId`),
+  KEY `CollegeEmailId` (`CollegeEmailId`),
+  CONSTRAINT `awards` FOREIGN KEY (`CollegeEmailId`) REFERENCES `facultyinformation` (`CollegeEmailId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+-- Active: 1707897697330@@127.0.0.1@3306@shiny
+CREATE TABLE `conference` (
+  `CollegeEmailId` varchar(255) DEFAULT NULL,
+  `ConferenceId` int NOT NULL,
+  `NameOfTheConference` int DEFAULT NULL,
+  `Date` date DEFAULT NULL,
+  `Duration` varchar(255) DEFAULT NULL,
+  `PaperPresented` varchar(255) DEFAULT NULL,
+  `Certificate` varchar(255) DEFAULT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ConferenceId`),
+  KEY `CollegeEmailId` (`CollegeEmailId`),
+  CONSTRAINT `conference` FOREIGN KEY (`CollegeEmailId`) REFERENCES `facultyinformation` (`CollegeEmailId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+-- Active: 1707897697330@@127.0.0.1@3306@shiny
+CREATE TABLE `extracurricularactivities` (
+  `ExtracurricularId` varchar(255) NOT NULL,
+  `CollegeEmailId` varchar(255) DEFAULT NULL,
+  `AcademicYear` int DEFAULT NULL,
+  `workshop_seminar_fdp` varchar(255) DEFAULT NULL,
+  `Title` varchar(255) DEFAULT NULL,
+  `from_date` varchar(255) DEFAULT NULL,
+  `to_date` varchar(255) DEFAULT NULL,
+  `organiser` varchar(255) DEFAULT NULL,
+  `Venue` varchar(255) DEFAULT NULL,
+  `Certificate` varchar(255) DEFAULT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ExtracurricularId`),
+  KEY `CollegeEmailId` (`CollegeEmailId`),
+  CONSTRAINT `Extracurricularactivities` FOREIGN KEY (`CollegeEmailId`) REFERENCES `facultyinformation` (`CollegeEmailId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+-- Active: 1707897697330@@127.0.0.1@3306@shiny
+CREATE TABLE `publishedbooks` (
+  `CollegeEmailId` varchar(255) DEFAULT NULL,
+  `PublishedBookId` int NOT NULL,
+  `BookName` int DEFAULT NULL,
+  `PublishedDate` varchar(255) DEFAULT NULL,
+  `Description` varchar(255) DEFAULT NULL,
+  `IndexPage` varchar(255) DEFAULT NULL,
+  `CoAuthors` varchar(255) DEFAULT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`PublishedBookId`),
+  KEY `CollegeEmailId` (`CollegeEmailId`),
+  CONSTRAINT `publishedbooks` FOREIGN KEY (`CollegeEmailId`) REFERENCES `facultyinformation` (`CollegeEmailId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+-- Active: 1707897697330@@127.0.0.1@3306@shiny
+CREATE TABLE `publishedjournals` (
+  `CollegeEmailId` varchar(255) DEFAULT NULL,
+  `PublishedJournalId` int NOT NULL,
+  `Journalname` int DEFAULT NULL,
+  `PublishedDate` date DEFAULT NULL,
+  `Description` varchar(255) DEFAULT NULL,
+  `Abstract` varchar(255) DEFAULT NULL,
+  `CoAuthors` varchar(255) DEFAULT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`PublishedJournalId`),
+  KEY `CollegeEmailId` (`CollegeEmailId`),
+  CONSTRAINT `Publishedjournals` FOREIGN KEY (`CollegeEmailId`) REFERENCES `facultyinformation` (`CollegeEmailId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+-- Active: 1707897697330@@127.0.0.1@3306@shiny
+CREATE TABLE `researchprojects` (
+  `CollegeEmailId` varchar(255) DEFAULT NULL,
+  `ProjectId` int NOT NULL,
+  `NameOfTheProject` int DEFAULT NULL,
+  `Objective` varchar(255) DEFAULT NULL,
+  `SponserDetails` varchar(255) DEFAULT NULL,
+  `Duration` varchar(255) DEFAULT NULL,
+  `AmountGiven` varchar(255) DEFAULT NULL,
+  `StatusPath` varchar(255) DEFAULT NULL,
+  `NoOfPersons` varchar(255) DEFAULT NULL,
+  `Photo` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ProjectId`),
+  KEY `CollegeEmailId` (`CollegeEmailId`),
+  CONSTRAINT `researchprojects` FOREIGN KEY (`CollegeEmailId`) REFERENCES `facultyinformation` (`CollegeEmailId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
