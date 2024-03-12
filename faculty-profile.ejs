@@ -1,0 +1,187 @@
+<!-- faculty_profile.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Profile</title>
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: grey;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+  
+   
+}
+    table {
+      border-collapse: collapse;
+      width: 80%;
+      margin: auto;
+      margin-bottom: 10px;
+      padding: 1px;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    .delete {
+      background-color: #f44336;
+    }
+    .fill {
+      background-color: #008CBA;
+        position: absolute;
+        top: 10px; 
+        right: 10px; 
+    }
+    .category-heading {
+      font-size: 30px;
+      color: red;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <center><h1>Faculty Profile</h1></center>
+
+  <!-- Academic Achievements -->
+  <h2 class="category-heading">Academic Achievements</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Created Form ID</th>
+        <th>Name Of Achievement</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="academicTableBody">
+      <!-- Populate the table with data fetched from the MySQL database -->
+      <% academicData.forEach(function(entry) { %>
+        <tr>
+          <td><%- entry.AchievementID %></td>
+          <td><%- entry.NameOfAchievement %></td>
+          <td><%- entry.Description %></td>
+          <td>
+            <button class="button delete" onclick="deleteRecord('academic', '<%- entry.AchievementID %>')">Delete</button>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <!-- Extracurricular Activities -->
+  <h2 class="category-heading">Extracurricular Activities</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>AcademicYear/th>
+        <th>Event Date</th>
+        <th>ResearchProject</th>
+        <th>ResearchActivity</th>
+        <th>Patents</th>
+        <th>PublicationBook</th>
+      </tr>
+    </thead>
+    <tbody id="extracurricularTableBody">
+      <!-- Populate the table with data fetched from the MySQL database -->
+      <% extracurricularData.forEach(function(entry) { %>
+        <tr>
+          <td><%- entry.ActivityID %></td>
+          <td><%- entry.EventName %></td>
+          <td><%- entry.Organisers %></td>
+          <td>
+            <button class="button delete" onclick="deleteRecord('extracurricular', '<%- entry.ActivityID %>')">Delete</button>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+
+  <!-- Common "Fill New Form" button -->
+  <button class="button fill" onclick="fillNewForm()">Fill New Form</button>
+ 
+ 
+ 
+ <script>
+  // Implement the fill new form button to redirect the user to the dashboard page when clicked
+  function fillNewForm() {
+    window.location.href = "/dashboard";
+  }
+
+  // Implement the delete button to prompt the user and delete the record
+  function deleteRecord(recordType, recordId) {
+    console.log("Deleting record with ID:", recordId);
+
+    // Display a confirmation dialog
+    if (confirm("Do you want to delete the record?")) {
+      console.log("Record type:", recordType);
+      console.log("Record ID:", recordId);
+
+      // Send an AJAX request to the server to delete the record
+      var xhr = new XMLHttpRequest();
+      var url = `/delete_${recordType}_record`;
+      xhr.open("POST", url);
+      xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          alert("Record deleted successfully");
+          // Reload the page to update the table
+          location.reload();
+        } else {
+          alert("Failed to delete the record");
+        }
+      };
+
+      // Pass the record ID with the correct key
+      var data = {};
+      if (recordType === "academic") {
+        data.AchievementID = recordId;
+      } else if (recordType === "extracurricular") {
+        data.ActivityID = recordId;
+      } else if (recordType === "researchactivity") {
+        data.SportsAchievementID = recordId;
+      } else if (recordType === "") {
+        data.CourseID = recordId;
+      }
+       // Log the data being sent
+    console.log("Data to be sent:", data);
+      xhr.send(JSON.stringify(data));
+    } else {
+      // Handle the case where the user clicks "Cancel"
+      console.log("Deletion canceled");
+    }
+  }
+</script>
+
+
+
+
+
+  
+</body>
+</html>

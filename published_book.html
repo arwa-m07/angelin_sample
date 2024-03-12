@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <title>Research Activity</title>
+</head>
+<body>
+    <div id="academic-form-container" class="form-container">
+    <form action="/submit-ResearchActivity" method="POST">
+      
+        <label for="emailId">Email Id:</label>
+        <br>
+        <br>
+        <input type="emailId" id="emailId" name="emailId" required>
+        <br>
+        <br>
+        <label for="BookName">Book Name:</label><br>
+        <br>
+        <input type="text" id="BookName" name="BookName" required><br>
+        <br>
+        <label for="PublishedDate">Published Date:</label><br>
+        <br>
+        <input type="Date" id="PublishedDate" name="PublishedDate" required><br>
+        <br>
+        <label for="Description">Description:</label><br>
+        <br>
+        <input type="text" id="Description" name="Description" required><br>
+        <br>
+        <label for="reference">Reference:<label><br>
+        <br>
+        <input type="text" id="reference" name="reference" required><br>
+        <br>
+        <label for="photoURL">Photo URL:</label><br>
+        <br>
+        <input type="text" id="photoURL" name="photoURL"><br>
+        <br>
+      <button type="submit">Submit</button>
+        
+    </form>
+    </div>
+</body>
+</html>

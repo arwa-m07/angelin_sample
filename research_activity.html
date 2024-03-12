@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <title>Research Activity</title>
+</head>
+<body>
+    <div id="academic-form-container" class="form-container">
+    <form action="/submit-ResearchActivity" method="POST">
+      
+        <label for="CollegeEmailId">CollegeEmail Id:</label>
+        <br>
+        <br>
+        <input type="CollegeEmailId" id="CollegeEmailId" name="CollegeEmailId" required>
+        <br>
+        <br>
+        <label for="NameOfTheProject">Name Of The Project :</label><br>
+        <br>
+        <input type="text" id="NameOfTheProject" name="NameOfTheProject" required><br>
+        <br>
+        <label for="Objective">Objective Of Project:</label><br>
+        <br>
+        <input type="text" id="Objective" name="Objective" required><br>
+        <br>
+        <label for="SponserDetails">Sponser Detail:</label><br>
+        <br>
+        <input type="text" id="SponserDetails" name="SponserDetails" required><br>
+        <br>
+        <label for="Duration">Duration:<label><br>
+        <br>
+        <input type="text" id="Duration" name="Duration" required><br>
+        <br>
+        <label for="AmountGiven">Amount Given:</label><br>
+        <br>
+        <textarea id="AmountGiven" name="AmountGiven"></textarea><br>
+        <br>
+        <label for="StatusPath">Status Path:</label><br>
+        <br>
+        <input type="text" id="StatusPath" name="StatusPath" required><br>
+        <br>
+        <br>
+        <label for="persons">No Of Person:</label><br>
+        <br>
+        <input type="text" id="persons" name="persons" required><br>
+        <br>
+        <label for="photoURL">Photo URL:</label><br>
+        <br>
+        <input type="text" id="photoURL" name="photoURL"><br>
+        <br>
+        <label for="certificateURL">Certificate URL:</label><br>
+        <br>
+        <input type="text" id="certificateURL" name="certificateURL" required><br>
+        <br>
+
+        <button type="submit">Submit</button>
+        
+    </form>
+    </div>
+</body>
+</html>

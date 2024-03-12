@@ -1,0 +1,33 @@
+<!-- Active: 1705334032428@@127.0.0.1@3306@project -->
+<!-- login.html -->
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- <link rel="stylesheet" href="styles/common.css"-->
+    <link rel="stylesheet" href="styles/design.css">
+    <title>Faculty Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+    <form id="loginForm" action="/authenticate" method="post" class="register-form">
+        
+       <b> <label for="Faculty register ID">Register ID:</label></b>
+    <br>
+        <!-- Add the "name" attribute -->
+        <input type="text" id="registerId" name="registerId" required placeholder="e.g.wcc2058 " >
+        <br>
+      <b>  <label for="unique password"> Password:</label></b>
+      <br>
+        <!-- Add the "name" attribute -->
+        <input type="text" id="dob" name="dob" required placeholder="yyyy-mm-dd">
+<br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script src="app.js"></script>
+</body>
+</html>

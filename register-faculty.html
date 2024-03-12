@@ -1,0 +1,51 @@
+<!-- Update the registration form to include profile photo -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- <link rel="stylesheet" href="styles/common.css"-->
+    <link rel="stylesheet" href="design.css"
+
+    <div class="container">
+        <div class="form-container">
+
+<form action="/register-faculty" method="post" enctype="multipart/form-data class="login-form">
+  <br><br> <br><b> <label for="FacultyFirstName">First Name:</label></b>
+    <input type="text" id="FacultyFirstName" name="FacultyFirstName" required placeholder="e.g. Angelin">
+  <br><br>
+   <b> <label for="FacultyLastName"> Last Name:</label></b>
+    <input type="text" id="FacultyLastName" name="FacultyLastName" required placeholder="e.g.; Shiny"><br>
+  <br>
+   <b> <label for="dob">Date of Birth:</label></b>
+  <input type="date" id="dob" name="dob" required placeholder="Enter in the format of : yyyy-mm-dd"><br>
+  <br><br>
+
+   <b> <label for="CollegeEmailId"> College Email Id:</label></b>
+    <input type="CollegeEmailId" id="CollegeEmailId" name="CollegeEmailId" required placeholder="e.g.; rani@wcc.edu.in"><br>
+    <br>
+    <b> <label for="CollegePassword">College Password</label></b>
+    <input type="CollegePassword" id="CollegePassword" name="CollegePassword" required placeholder="e.g:angelin22"><br>
+    <br>
+  
+   <b><label for="Department">Department:</label></b>
+    <input type="text" id="Department" name="Department" required placeholder="e.g.; Visual Communication"><br>
+    <br>
+    <b><label for="Designation">Designation:</label></b>
+    <input type="text" id="Designation" name="Designation" required placeholder="e.g.; HOD"><br>
+    <br>
+    <b><label for="Qualification">Qualification:</label></b>
+    <input type="text" id="Qualification" name="Qualification" required placeholder="e.g.; MBA"><br>
+    <br>
+    <b><label for="YearsOfExperience">Yeasr Of Experience</label></b>
+    <input type="text" id="YearsOfExperience" name="YearsOfExperience" required placeholder="e.g.; Five Years"><br>
+    <br>
+    <b><label for="SubjectsExpertise">Subjects Expertise:</label></b>
+    <input type="text" id="SubjectsExpertise" name="SubjectsExpertise" required placeholder="e.g.; Bussiness Communication"><br>
+    <br>
+  <b><label for="profilePhoto">Profile Photo:</label></b>
+    <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" required ><br>
+    <br>
+  <b> <button type="submit">Register</button></b>
+  </form>
+ <script src = "app.js"></script>
+

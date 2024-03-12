@@ -1,0 +1,52 @@
+<!-- academic_achievement.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <title>Academic Achievement</title>
+</head>
+<body>
+    <div id="academic-form-container" class="form-container">
+    <form action="/submit-academic-achievement" method="POST">
+      
+        <label for="CollegeEmailId">Email Id:</label>
+        <br>
+        <br>
+        <input type="CollegeEmailId" id="CollegeEmailId" name="CollegeEmailId" required>
+        <br>
+        <label for="AcademicYear">Academic Year:</label><br>
+        <br>
+        <input type="text" id="AcademicYear" name="AcademicYear" required><br>
+        <br>
+        <br>
+        <label for="Department">Department:</label><br>
+        <br>
+        <input type="text" id="Department" name="Department" required><br>
+        <br>
+        <label for="AchievementsType">Name of Achievement:</label><br>
+        <br>
+        <input type="text" id="AchievementsType" name="AchievementsType" required><br>
+        <br>
+        <br>
+        <label for="Subjects">Subjects:</label><br>
+        <br>
+        <input type="text" id="Subjects" name="Subjects" required><br>
+        <br>
+        <br>
+        <label for="photoURL">Photo URL:</label><br>
+        <br>
+        <input type="file" id="photoURL" name="photoURL" accept="image/*" required><br>
+        <br>
+        <label for="certificateURL">Certificate URL:</label><br>
+        <br>
+        <input type="text" id="certificateURL" name="certificateURL" required><br>
+        <br>
+
+        <button type="submit">Submit</button>
+        
+    </form>
+    </div>
+</body>
+</html>
